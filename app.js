@@ -4,12 +4,29 @@ let toDoList = document.querySelector('#to-do-list')
 let todoTitle = document.querySelector('#to-do-title')
 let todoText = document.querySelector('#to-do-text')
 let formButton = document.querySelector('#form-button')
+let submitButton = document.querySelector('#submit-button')
 let listPlaceholder = document.querySelector('.list-placeholder')
 let notes = []
 
 
 document.body.addEventListener('click', event => {
     handleForm(event)
+})
+
+form.addEventListener('submit', event =>{
+    event.preventDefault()
+
+    let title = todoTitle.value;
+    let text = todoText.value;
+     const hasNote = title || text;
+
+     if (hasNote) {
+
+         this.addNote({ title: title, text: text });
+    }
+
+    displayNote()
+
 })
 
 function openForm(event) {
@@ -28,8 +45,9 @@ function closeForm(event) {
         form.classList.remove('form-open');
         todoTitle.style.display = "none";
         formButton.style.display = "none";
-
-    displayNote()
+     
+        todoTitle.value= ''
+        todoText.value =""
 }
 
 
