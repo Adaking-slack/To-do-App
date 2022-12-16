@@ -13,7 +13,7 @@ document.body.addEventListener('click', event => {
     handleForm(event)
 })
 
-form.addEventListener('submit', event =>{
+submitButton.addEventListener('click', event =>{
     event.preventDefault()
 
     let title = todoTitle.value;
