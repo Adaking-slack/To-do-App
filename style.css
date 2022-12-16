@@ -99,7 +99,6 @@ button{
   .toolbar {
     flex-direction: row-reverse;
     align-items: center;
-    color: rgba(0, 0, 0, 0.54);
     display: flex;
     font-size: 12px;
     line-height: 26px;
@@ -108,7 +107,16 @@ button{
     transition: opacity 0.218s ease-in-out, background-color 0.218s ease-in-out,
       box-shadow 0.218s ease-in-out;
   }
-  
+
+  .toolbar-delete{
+    width: 12px;
+    margin: 3px;
+  }
+  .toolbar-color{
+    width: 12px;
+    margin: 3px;
+
+  }
 
  .note-title {
     padding-top: 12px;

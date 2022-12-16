@@ -13,7 +13,7 @@ document.body.addEventListener('click', event => {
     handleForm(event)
 })
 
-submitButton.addEventListener('click', event =>{
+form.addEventListener('submit', event =>{
     event.preventDefault()
 
     let title = todoTitle.value;
@@ -26,7 +26,6 @@ submitButton.addEventListener('click', event =>{
     }
 
     displayNote()
-
 })
 
 function openForm(event) {
@@ -101,8 +100,8 @@ toDoList.innerHTML = notes.map(note =>`
     <div class="note-text">${note.text}</div>
     <div class="toolbar-container">
       <div class="toolbar">
-        <img class="toolbar-color" data-id=${note.id} src="https://icon.now.sh/palette">
-        <img class="toolbar-delete" data-id=${note.id}  src="https://icon.now.sh/delete">
+        <img class="toolbar-color" data-id=${note.id} src="images/palette-solid.svg">
+        <img class="toolbar-delete" data-id=${note.id}  src="images/trash-solid.svg">
       </div>
     </div>
     </div>
