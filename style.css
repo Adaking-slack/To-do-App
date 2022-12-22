@@ -160,7 +160,9 @@ button{
   .toolbar-color-modal {
     display: none;
   }
-
+  .color-option:hover {
+    border: 1px solid black;
+  }
   .toolbar-delete{
     width: 12px;
     margin: 3px;

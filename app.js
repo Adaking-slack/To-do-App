@@ -21,7 +21,28 @@ document.body.addEventListener('mouseover', event =>{
 
 })
 
+document.body.addEventListener('mouseout', event => {
+    closeTooltip(event);  
+ });
 
+
+ colorTooltip.addEventListener('mouseover',  function() {
+    colorTooltip.style.display = 'flex';  
+
+ })
+ 
+colorTooltip.addEventListener('mouseout', function() {
+    colorTooltip.style.display = "none"
+ })
+
+
+ 
+ colorTooltip.addEventListener('click', event => {
+    const color = event.target.dataset.color; 
+    if (color) {
+     editNoteColor(color)  
+    }
+ });
 
 form.addEventListener('submit', event =>{
     event.preventDefault()
@@ -87,6 +108,14 @@ function handleForm(event) {
 
 }
 
+function editNoteColor(color) {
+    notes = notes.map(note =>
+       note.id === Number(this.id) ? { ...note, color } : note
+     );
+     console.log(notes)
+    displayNote();
+   }
+
 function addNote({title, text}){
 
     const newNote = {
@@ -101,15 +130,25 @@ function addNote({title, text}){
     closeForm()
 }
 
+
 function openToolTip(event){
   if(!event.target.matches('.toolbar-color')) return;
-  id =   event.target.nextElementSibling.dataset.id;
+  id =   event.target.dataset.id;
   const noteCoords = event.target.getBoundingClientRect();
-  const horizontal = noteCoords.left + window.scrollX -120;
-  const vertical = noteCoords.top + window.scrollY - 1;
+  const horizontal = noteCoords.left + window.scrollX -125;
+  const vertical = noteCoords.top + window.scrollY - 9;
   colorTooltip.style.transform = `translate(${horizontal}px, ${vertical}px)`;
   colorTooltip.style.display = 'flex';
 }
+
+
+function closeTooltip(event) {
+    if (!event.target.matches('.toolbar-color')) return;
+   colorTooltip.style.display = 'none';  
+  }
+
+
+ 
 
 function displayNote(){
 let hasNote = notes.length > 0;
@@ -121,7 +160,7 @@ toDoList.innerHTML = notes.map(note =>`
     <div class="note-text">${note.text}</div>
     <div class="toolbar-container">
       <div class="toolbar">
-        <img class="toolbar-color" src="images/palette-solid.svg">
+        <img class="toolbar-color" data-id=${note.id} src="images/palette-solid.svg">
         <img class="toolbar-delete" data-id=${note.id}  src="images/trash-solid.svg">
       </div>
     </div>
