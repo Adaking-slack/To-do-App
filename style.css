@@ -108,6 +108,60 @@ button{
       box-shadow 0.218s ease-in-out;
   }
 
+  #color-tooltip {
+    border-bottom: 2px solid #fff;
+    position: absolute;
+    top: -40;
+    background: #fff;
+    border: 1px solid black;
+    left:0;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 5px 7px 3px;
+    width: 136px;
+    height: 40px;
+    justify-content: space-between;
+  }
+  .toolbar-color,
+  .toolbar-delete {
+    height: 20px;
+    margin: 0 8px;
+    position: relative;
+    width: 20px;
+    margin: 0 3px;
+    cursor: pointer;
+    color: #202124;
+    opacity: 0.71;
+  }
+  #white {
+    background: white;
+  }
+  
+  #purple {
+    background: #d7aefb;
+  }
+  
+  #orange {
+    background: #fbbc04;
+  }
+  
+  #teal {
+    background: #a7ffeb;
+  }
+  
+  .color-option {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #dedede;
+  }
+  
+  
+  .toolbar-color-modal {
+    display: none;
+  }
+
   .toolbar-delete{
     width: 12px;
     margin: 3px;

@@ -1,3 +1,4 @@
+let notes = []
 
 let form = document.querySelector('#form-ccontainer')
 let toDoList = document.querySelector('#to-do-list')
@@ -6,12 +7,21 @@ let todoText = document.querySelector('#to-do-text')
 let formButton = document.querySelector('#form-button')
 let submitButton = document.querySelector('#submit-button')
 let listPlaceholder = document.querySelector('.list-placeholder')
-let notes = []
+let colorTooltip = document.querySelector('#color-tooltip');
+
 
 
 document.body.addEventListener('click', event => {
     handleForm(event)
 })
+
+document.body.addEventListener('mouseover', event =>{
+    openToolTip(event);
+    console.log(openToolTip(event))
+
+})
+
+
 
 form.addEventListener('submit', event =>{
     event.preventDefault()
@@ -25,8 +35,11 @@ form.addEventListener('submit', event =>{
          this.addNote({ title: title, text: text });
     }
 
-    displayNote()
+    displayNote()  
+
 })
+
+
 
 function openForm(event) {
     
@@ -48,7 +61,6 @@ function closeForm(event) {
         todoTitle.value= ''
         todoText.value =""
 }
-
 
 
 function handleForm(event) {
@@ -89,6 +101,15 @@ function addNote({title, text}){
     closeForm()
 }
 
+function openToolTip(event){
+  if(!event.target.matches('.toolbar-color')) return;
+  id =   event.target.nextElementSibling.dataset.id;
+  const noteCoords = event.target.getBoundingClientRect();
+  const horizontal = noteCoords.left + window.scrollX;
+  const vertical = noteCoords.top + window.scrollY;
+  colorTooltip.style.transform = `translate(${horizontal}px, ${vertical}px)`;
+  colorTooltip.style.display = 'flex';
+}
 
 function displayNote(){
 let hasNote = notes.length > 0;
@@ -100,7 +121,7 @@ toDoList.innerHTML = notes.map(note =>`
     <div class="note-text">${note.text}</div>
     <div class="toolbar-container">
       <div class="toolbar">
-        <img class="toolbar-color" data-id=${note.id} src="images/palette-solid.svg">
+        <img class="toolbar-color" src="images/palette-solid.svg">
         <img class="toolbar-delete" data-id=${note.id}  src="images/trash-solid.svg">
       </div>
     </div>
