@@ -105,8 +105,8 @@ function openToolTip(event){
   if(!event.target.matches('.toolbar-color')) return;
   id =   event.target.nextElementSibling.dataset.id;
   const noteCoords = event.target.getBoundingClientRect();
-  const horizontal = noteCoords.left + window.scrollX;
-  const vertical = noteCoords.top + window.scrollY;
+  const horizontal = noteCoords.left + window.scrollX -120;
+  const vertical = noteCoords.top + window.scrollY - 1;
   colorTooltip.style.transform = `translate(${horizontal}px, ${vertical}px)`;
   colorTooltip.style.display = 'flex';
 }
