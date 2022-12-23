@@ -20,7 +20,7 @@ input{
 }
 
 #form-ccontainer{
-width: 300px;  
+width: 310px;  
   margin: 32px auto 16px auto;
 
 }
@@ -70,7 +70,7 @@ button{
     flex-direction: column;
     justify-content: space-between;
     margin: 16px;
-    width: 250px;
+    width: 200px;
     background-color: #fff;
   border-color: #e0e0e0;
   border: 1px solid #d3d3d3;
@@ -197,8 +197,9 @@ button{
 }
 .list img{
     margin: 1.5em;
-    width:200px;
-    max-width: 100%;
     border-radius: 6%;
 }
 
+#placeholder-logo{
+  width: 300px;
+}
